@@ -8,6 +8,7 @@ import { MyForm } from './websocket-components/MyForm';
 export default function WebSocket() {
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [fooEvents, setFooEvents] = useState<string[]>([]);
+  const [clicks, setClicks] = useState(0);
 
   useEffect(() => {
     function onConnect() {
@@ -22,9 +23,14 @@ export default function WebSocket() {
       setFooEvents(previous => [...previous, value]);
     }
 
+    function onClicksEvent(value: number) {
+      setClicks(value);
+    }
+
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
     socket.on('foo', onFooEvent);
+    socket.on('clicks', onClicksEvent)
 
     return () => {
       socket.off('connect', onConnect);
@@ -36,7 +42,7 @@ export default function WebSocket() {
   return (
     <div className="App">
       <ConnectionState isConnected={ isConnected } />
-      <Events events={ fooEvents } />
+      <Events events={ fooEvents } clicks={clicks}/>
       <ConnectionManager />
       <MyForm />
     </div>
