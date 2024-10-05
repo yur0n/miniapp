@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { socket } from '../socket';
 import { useInitData } from '@telegram-apps/sdk-react';
-import NoFishImg from '/miniapp/images/nofish.webp'
-import FishImg from '/miniapp/images/fish.webp'
+import NoFishImg from '/images/nofish.webp'
+import FishImg from '/images/fish.webp'
 
 export function FishGame() {
   const username = useInitData()?.user?.username;
