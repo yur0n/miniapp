@@ -4,6 +4,7 @@ import { ConnectionState } from './websocket-components/ConnectionState';
 import { ConnectionManager } from './websocket-components/ConnectionManager';
 import { Events } from "./websocket-components/Events";
 import { MyForm } from './websocket-components/MyForm';
+import { FishGame } from './websocket-components/FishGame';
 
 export default function WebSocket() {
   const [isConnected, setIsConnected] = useState(socket.connected);
@@ -41,10 +42,11 @@ export default function WebSocket() {
 
   return (
     <div className="App">
-      <ConnectionState isConnected={ isConnected } />
-      <Events events={ fooEvents } clicks={clicks}/>
-      <ConnectionManager />
-      <MyForm />
+      {/* <ConnectionState isConnected={ isConnected } />
+      <Events events={ fooEvents } clicks={clicks}/> */}
+      {/* <ConnectionManager /> */}
+      {/* <MyForm /> */}
+      <FishGame />
     </div>
   );
 }
