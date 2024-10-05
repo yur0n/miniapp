@@ -6,6 +6,7 @@ import { LaunchParamsPage } from '@/pages/LaunchParamsPage/LaunchParamsPage.tsx'
 import { ThemeParamsPage } from '@/pages/ThemeParamsPage/ThemeParamsPage.tsx';
 import { TONConnectPage } from '@/pages/TONConnectPage/TONConnectPage';
 import { GamePage } from '@/pages/GamePage/GamePage';
+import { FishGame } from '@/components/WebSocket/websocket-components/FishGame';
 
 interface Route {
   path: string;
@@ -15,8 +16,8 @@ interface Route {
 }
 
 export const routes: Route[] = [
-  // { path: '/', Component: IndexPage },
-  { path: '/', Component: GamePage },
+  { path: '/', Component: FishGame },
+  { path: '/index', Component: IndexPage },
   { path: '/test', Component: () => <div>{'asd'}</div> },
   { path: '/init-data', Component: InitDataPage, title: 'Init Data' },
   { path: '/theme-params', Component: ThemeParamsPage, title: 'Theme Params' },
